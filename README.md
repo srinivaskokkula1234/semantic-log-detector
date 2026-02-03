@@ -69,8 +69,7 @@ pip install -r requirements.txt
   <li>Hosted deployment using Vertex AI or similar platforms</li>
 </ul>
 
-<h2>License</h2>
-<p>This project is licensed under the MIT License — see the <a href="LICENSE">LICENSE</a> file for details.</p>
+
 
 <h2>Contact</h2>
 <p>For contributions or questions, reach out to <strong>ghostreindeer09</strong> or open an issue on this repository.</p>
