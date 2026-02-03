@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Semantic Log Detector</title>
+  
 </head>
 <body>
 
