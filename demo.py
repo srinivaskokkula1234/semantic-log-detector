@@ -9,7 +9,7 @@ import os
 # Add src to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from src.pipeline import AnomalyDetectionPipeline
+from src.detection.pipeline import AnomalyDetectionPipeline
 from data.log_generator import LogGenerator
 
 

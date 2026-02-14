@@ -13,7 +13,7 @@ import logging
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.pipeline import AnomalyDetectionPipeline
+from src.detection.pipeline import AnomalyDetectionPipeline
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 CORS(app)
@@ -68,7 +68,7 @@ def detect():
     # Metadata for hybrid model (optional)
     metadata = {}
     
-    result = pipeline.detect(log)
+    result = pipeline.detect(log, metadata) # Hybrid pipeline expects metadata
     
     # Handle dictionary result (from Hybrid pipeline)
     if isinstance(result, dict):
@@ -140,16 +140,9 @@ def init_app(config_path=None):
     if os.path.exists(f"{model_path}.state"):
         print(f"Loading trained SIEM model from {model_path}...")
         try:
-            # We need to import HybridAnomalyPipeline here to resolve circular imports if any,
-            # or just pickle compatibility. Since it's in a different script, 
-            # we might need to make sure the class is available.
-            # However, looking at project structure, HybridAnomalyPipeline is in train_siem.py
-            # which might not be importable if not in module path.
-            # Ideally HybridAnomalyPipeline should be in src/pipeline.py or similar.
-            
             # Let's import it dynamically
             sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-            from train_siem import HybridAnomalyPipeline
+            from src.models.hybrid_model import HybridAnomalyPipeline
             pipeline = HybridAnomalyPipeline.load(model_path)
             print("✅ Trained SIEM model loaded successfully!")
             
