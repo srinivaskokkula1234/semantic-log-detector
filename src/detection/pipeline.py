@@ -9,12 +9,12 @@ from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 from dataclasses import dataclass
 
-from .preprocessor import LogPreprocessor, ParsedLog
-from .encoder import LogEncoder
+from ..utils.preprocessor import LogPreprocessor, ParsedLog
+from ..models.encoder import LogEncoder
 from .vector_db import VectorDatabase
 from .similarity_search import SimilaritySearcher
 from .anomaly_scorer import AnomalyScorer, AnomalyScore
-from .explanation_engine import ExplanationEngine, Explanation
+from ..utils.explanation_engine import ExplanationEngine, Explanation
 from .time_aware import TimeAwareModule
 
 
