@@ -1,0 +1,111 @@
+{
+  "clean_baseline": {
+    "f1": 0.9991,
+    "accuracy": 0.9991
+  },
+  "noise_tests": [
+    {
+      "noise_level": 0.01,
+      "perturbation_runs": [
+        {
+          "run": 0,
+          "seed": 42,
+          "f1": 0.7772,
+          "accuracy": 0.8356,
+          "prediction_stability": 0.8348
+        },
+        {
+          "run": 1,
+          "seed": 43,
+          "f1": 0.7774,
+          "accuracy": 0.8359,
+          "prediction_stability": 0.8351
+        },
+        {
+          "run": 2,
+          "seed": 44,
+          "f1": 0.7767,
+          "accuracy": 0.8354,
+          "prediction_stability": 0.8346
+        }
+      ],
+      "summary": {
+        "mean_f1": 0.7771,
+        "mean_accuracy": 0.8356,
+        "mean_stability": 0.8348,
+        "f1_degradation_pct": 22.22,
+        "accuracy_degradation_pct": 16.36,
+        "f1_std": 0.0003
+      }
+    },
+    {
+      "noise_level": 0.05,
+      "perturbation_runs": [
+        {
+          "run": 0,
+          "seed": 42,
+          "f1": 0.7614,
+          "accuracy": 0.8281,
+          "prediction_stability": 0.8273
+        },
+        {
+          "run": 1,
+          "seed": 43,
+          "f1": 0.7614,
+          "accuracy": 0.8281,
+          "prediction_stability": 0.8273
+        },
+        {
+          "run": 2,
+          "seed": 44,
+          "f1": 0.761,
+          "accuracy": 0.828,
+          "prediction_stability": 0.8272
+        }
+      ],
+      "summary": {
+        "mean_f1": 0.7613,
+        "mean_accuracy": 0.8281,
+        "mean_stability": 0.8273,
+        "f1_degradation_pct": 23.81,
+        "accuracy_degradation_pct": 17.12,
+        "f1_std": 0.0002
+      }
+    },
+    {
+      "noise_level": 0.1,
+      "perturbation_runs": [
+        {
+          "run": 0,
+          "seed": 42,
+          "f1": 0.7584,
+          "accuracy": 0.8264,
+          "prediction_stability": 0.8256
+        },
+        {
+          "run": 1,
+          "seed": 43,
+          "f1": 0.7584,
+          "accuracy": 0.8266,
+          "prediction_stability": 0.8258
+        },
+        {
+          "run": 2,
+          "seed": 44,
+          "f1": 0.7582,
+          "accuracy": 0.8267,
+          "prediction_stability": 0.8259
+        }
+      ],
+      "summary": {
+        "mean_f1": 0.7583,
+        "mean_accuracy": 0.8266,
+        "mean_stability": 0.8258,
+        "f1_degradation_pct": 24.1,
+        "accuracy_degradation_pct": 17.27,
+        "f1_std": 0.0001
+      }
+    }
+  ],
+  "overall_robustness_score": 0.8293
+}

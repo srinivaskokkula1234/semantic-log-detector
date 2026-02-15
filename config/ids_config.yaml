@@ -1,0 +1,112 @@
+# ============================================================
+# CIC-IDS2017 Intrusion Detection Training Pipeline Config
+# ============================================================
+
+# --- Paths ---
+paths:
+  raw_dataset_dir: "Datasets/CIC-IDS- 2017"
+  processed_dir: "data/processed"
+  output_dir: "outputs"
+  checkpoints_dir: "outputs/checkpoints"
+  reports_dir: "outputs/reports"
+  metrics_dir: "outputs/metrics"
+  benchmark_dir: "outputs/benchmark"
+
+# --- Data Loading ---
+data:
+  encoding: "latin-1"
+  label_column: "Label"
+  test_size: 0.15
+  val_size: 0.15
+  random_seed: 42
+  remove_duplicates: true
+  max_samples: null  # Set to an integer to limit dataset size (for debugging)
+
+# --- Label Mapping ---
+labels:
+  binary:
+    BENIGN: 0
+    _default_attack: 1
+  multiclass:
+    BENIGN: "BENIGN"
+    DDoS: "DDoS"
+    DoS GoldenEye: "DoS"
+    DoS Hulk: "DoS"
+    DoS Slowhttptest: "DoS"
+    DoS slowloris: "DoS"
+    Heartbleed: "DoS"
+    PortScan: "PortScan"
+    Bot: "Bot"
+    FTP-Patator: "Brute Force"
+    SSH-Patator: "Brute Force"
+    Infiltration: "Infiltration"
+    # Web attacks (handle encoding issues)
+    _web_attack_default: "Web Attack"
+
+# --- Model Selection ---
+model:
+  # "structured" or "semantic"
+  active_model: "structured"
+
+  structured:
+    type: "lightgbm"  # "xgboost" or "lightgbm"
+    params:
+      n_estimators: 500
+      max_depth: 8
+      learning_rate: 0.05
+      num_leaves: 63
+      min_child_samples: 50
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_alpha: 0.1
+      reg_lambda: 1.0
+      random_state: 42
+      n_jobs: -1
+      verbose: -1
+
+  semantic:
+    pretrained_model: "bert-base-uncased"
+    max_seq_length: 256
+    hidden_dropout: 0.2
+    classifier_hidden_dim: 256
+    freeze_bert_layers: 8  # Freeze first N layers
+
+# --- Training ---
+training:
+  task: "binary"  # "binary" or "multiclass"
+  epochs: 10
+  batch_size: 32
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  gradient_clip_max_norm: 1.0
+  early_stopping_patience: 3
+  early_stopping_metric: "val_f1"
+  use_weighted_loss: true
+  seed: 42
+  fp16: false
+
+# --- Threshold Calibration ---
+threshold:
+  methods:
+    - "youden_j"
+    - "max_f1"
+  default_method: "youden_j"
+
+# --- Inference Benchmark ---
+benchmark:
+  batch_sizes: [1, 32]
+  num_warmup: 10
+  num_iterations: 100
+
+# --- Robustness Testing ---
+robustness:
+  noise_levels: [0.01, 0.05, 0.1]
+  num_perturbations: 3
+  seed: 42
+
+# --- Logging ---
+logging:
+  level: "INFO"
+  format: "%(asctime)s | %(name)-25s | %(levelname)-8s | %(message)s"
+  log_file: "outputs/training.log"

@@ -1,0 +1,21 @@
+[
+  {
+    "model_type": "lightgbm",
+    "task": "multiclass",
+    "train_time_seconds": 767.63,
+    "best_iteration": 500,
+    "n_features": 78,
+    "train_samples": 1765652,
+    "val_samples": 378355,
+    "class_weights": {
+      "0": 0.1504,
+      "1": 162.883,
+      "2": 34.1651,
+      "3": 2.4635,
+      "4": 1.628,
+      "5": 7882.375,
+      "6": 3.4702,
+      "7": 146.5515
+    }
+  }
+]

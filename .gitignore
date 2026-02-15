@@ -1,0 +1,90 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+wheels/
+pip-wheel-metadata/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Model files (large binary files)
+*.pt
+*.pth
+*.onnx
+*.bin
+*.safetensors
+saved_models/
+
+# FAISS index files
+*.index
+
+# HuggingFace cache
+.cache/
+~/.cache/huggingface/
+
+# Large data files
+Datasets/
+*.parquet
+
+# Model checkpoints and pickles
+outputs/checkpoints/*.pkl
+outputs/checkpoints/tokenizer/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+*.env
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MyPy
+.mypy_cache/
+
+# Misc
+*.bak
+*.tmp
+
+# Project specific - keep processed metadata but not data
+data/processed/*.parquet
+!data/processed/metadata.json
+data/raw/
+
+# Agent directories
+.agent/

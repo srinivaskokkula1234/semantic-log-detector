@@ -1,0 +1,62 @@
+{
+  "batch_size_1": {
+    "batch_size": 1,
+    "num_iterations": 100,
+    "total_samples": 100,
+    "total_time_seconds": 0.8469,
+    "latency_per_batch_ms": {
+      "mean": 8.2628,
+      "std": 1.0618,
+      "min": 6.9584,
+      "max": 12.5843,
+      "p50": 7.9962,
+      "p95": 10.0761,
+      "p99": 12.3502
+    },
+    "latency_per_sample_ms": 8.2628,
+    "throughput_flows_per_sec": 118.08,
+    "resource_usage": {
+      "before": {
+        "cpu_percent": 73.6,
+        "memory_rss_mb": 461.875,
+        "memory_vms_mb": 4426.83203125
+      },
+      "after": {
+        "cpu_percent": 62.7,
+        "memory_rss_mb": 461.90234375,
+        "memory_vms_mb": 4426.83203125
+      },
+      "memory_delta_mb": 0.03
+    }
+  },
+  "batch_size_32": {
+    "batch_size": 32,
+    "num_iterations": 100,
+    "total_samples": 3200,
+    "total_time_seconds": 3.3897,
+    "latency_per_batch_ms": {
+      "mean": 33.6892,
+      "std": 89.5249,
+      "min": 10.4505,
+      "max": 517.8288,
+      "p50": 14.1865,
+      "p95": 28.1274,
+      "p99": 508.7083
+    },
+    "latency_per_sample_ms": 1.0528,
+    "throughput_flows_per_sec": 944.02,
+    "resource_usage": {
+      "before": {
+        "cpu_percent": 69.5,
+        "memory_rss_mb": 463.43359375,
+        "memory_vms_mb": 4428.20703125
+      },
+      "after": {
+        "cpu_percent": 61.1,
+        "memory_rss_mb": 463.43359375,
+        "memory_vms_mb": 4428.20703125
+      },
+      "memory_delta_mb": 0.0
+    }
+  }
+}
